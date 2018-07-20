@@ -58,19 +58,24 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         if model.shape[1] > data.shape[1] :
             diff = model.shape[1] - data.shape[1]
-            remove = numpy.random.randint(1,high=model.shape[1] , size = diff)
+            remove = numpy.random.choice(range(model.shape[1]) , size = diff , replace =False)         
             model = numpy.delete(model , remove , axis = 1)
             z=numpy.zeros((1,data.shape[1]))
             data= numpy.vstack((data,z)) 
             model= numpy.vstack((model,z))
         elif model.shape[1] < data.shape[1] :
             diff = -(model.shape[1] - data.shape[1])
-            remove = numpy.random.randint(1,high=data.shape[1] , size = diff)
+            remove = numpy.random.choice(range(high=data.shape[1]) , size = diff  ,replace = False)
             data = numpy.delete(data , remove , axis = 1)
-            z=numpy.zeros((1,model.shape[1],))
+            z=numpy.zeros((1,model.shape[1]))
             data= numpy.vstack((data,z))
             model= numpy.vstack((model,z))
-        
+        else:
+            z=numpy.zeros((1,data.shape[1]))
+            data= numpy.vstack((data,z)) 
+            model= numpy.vstack((model,z))
+
+
         model_zerocentered = model - model.mean(1).reshape((model.mean(1).shape[0]), 1)
         data_zerocentered = data - data.mean(1).reshape((data.mean(1).shape[0]), 1)
         

@@ -1,5 +1,5 @@
 import sys
-
+import configparser
 from gui.GUI import MainWindow
 from gui.threadGUI import ThreadGUI
 from MyAlgorithm import MyAlgorithm
@@ -8,7 +8,10 @@ from read_rosbag import Read_Rosbag
 from pose import Pose
 
 if __name__ == "__main__":
-    bag_file = 'rgbd_dataset_freiburg2_pioneer_slam_truncated.bag'
+    config = configparser.ConfigParser()
+    config.read('visual_odometry.cfg')
+    bag_file = config['FILE']['rosbag_file_dir']
+    
     pose_obj = Pose()
     bag = Read_Rosbag(pose_obj ,bag_file)
     

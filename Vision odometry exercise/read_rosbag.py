@@ -28,7 +28,8 @@ class Read_Rosbag:
         self.color_img = None
         self.current_timestamp = None
         self.depth_img = None
-        self.orientation_noise = np.random.normal(0, (1/3), [1254,2]).tolist() #orientation noise mu =0 and 5*sigma = 1
+        orientation_count = self.bag.get_message_count('/pose') + 1
+        self.orientation_noise = np.random.normal(0, (1/3), [orientation_count,2]).tolist() #orientation noise mu =0 and 5*sigma = 1
     def depthToRGB8(self,float_img_buff, encoding):
         '''
         Translates from Distance Image format to RGB. Inf values are represented by NaN, when converting to RGB, NaN passed to 0 
@@ -93,7 +94,9 @@ class Read_Rosbag:
 
             elif topic == '/camera/depth/image' and ('depth_img' in sensors or sensors == () or 'stream' in sensors):
                 gray_img_buff = self.bridge.imgmsg_to_cv2(msg,  desired_encoding=msg.encoding)
-                self.depth_img = self.depthToRGB8(gray_img_buff , msg.encoding)
+                
+                #self.depth_img = self.depthToRGB8(gray_img_buff , msg.encoding)
+                self.depth_img = gray_img_buff
                 self.depth_img_t = t
                 self.topic_name = 'depth_img'
 

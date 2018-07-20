@@ -89,23 +89,10 @@ class MyAlgorithm(threading.Thread):
         self.kill_event.set()
 
     def algorithm(self):
-        ''' Anyone of the ROSBAG file has to be downloaded from TUM RGBD dataset site 'https://vision.in.tum.de/data/datasets/rgbd-dataset/download'
-            and placed in this folder.
-        '''
-        #Getting sensor data
-        data = self.getReadings('accelerometer' , 'orientation' , 'color_img' , 'depth_img') # to get readings data from selected sensors
-        '''
-        data = self.getReadings() # to get data from all sensors
-        data = self.getReadings('stream') # to stream data from all sensors one by one 
-        '''
         
-        #imu data
-        ax=data.accelerometer['x']
-        ay=data.accelerometer['y']
-        accelerometer_t = data.accelerometer_t
-        orientation_t = data.orientation_t
-        qz=data.orientation['qz']
-        qw=data.orientation['qw']
+        #Getting sensor data
+        data = self.getReadings('color_img' , 'depth_img') # to get readings data from selected sensors
+        
         #color image
         color_image = data.color_img
         #depth image
@@ -117,7 +104,9 @@ class MyAlgorithm(threading.Thread):
         y = 1
         #Show processed image on GUI
         self.set_processed_image(color_image)
+        
         #set predicted pose
-        self.set_predicted_pose(x,y)        #self.set_predicted_path(path)        #set predicted path at once /or reset the previously set predicted poses at once ---- path should be Nx2 numpy array or python list [x,y].
-        #set predicted path at once /or reset the previously set predicted poses at once ---- path should be Nx2 numpy array or python list [x,y].
-        #self.set_predicted_path(path)
+        self.set_predicted_pose(x,y)    
+
+        #self.set_predicted_path(path)    - set predicted path at once /or reset the previously set predicted poses at once ---- path should be Nx2 numpy array or python list [x,y].
+        
