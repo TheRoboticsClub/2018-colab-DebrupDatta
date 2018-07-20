@@ -90,6 +90,9 @@ class MyAlgorithm(threading.Thread):
 
     def algorithm(self):
         
+        # demo code (replace with your code )
+        print ("Runing")
+        
         #Getting sensor data
         data = self.getReadings('color_img' , 'depth_img') # to get readings data from selected sensors
         
@@ -104,7 +107,7 @@ class MyAlgorithm(threading.Thread):
         y = 1
         #Show processed image on GUI
         self.set_processed_image(color_image)
-        
+
         #set predicted pose
         self.set_predicted_pose(x,y)    
 
