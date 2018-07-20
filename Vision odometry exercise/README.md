@@ -8,7 +8,9 @@ To launch the exercise, follow the steps below:
 * **Download** the rosbag file from the TUM RGBD dataset.( <https://vision.in.tum.de/rgbd/dataset/freiburg2/rgbd_dataset_freiburg2_pioneer_slam.bag> ) or a truncated version of the same file from here ( <https://drive.google.com/file/d/1H3hRQZcNgOlyKMoAPSVcPDnoBLexWCDx/view?usp=sharing> )
 
 * **Requirements** - (install these packages before proceeding).
-
+    
+    ROS  --- <http://wiki.ros.org/kinetic/Installation/Ubuntu>
+    
 	rosbag --- ```sudo apt-get install python-rosbag```
 	
 	pyqtgraph  --- ```sudo pip install pyqtgraph```
