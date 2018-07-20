@@ -22,7 +22,7 @@ To launch the exercise, follow the steps below:
 To carry out the practice, you must edit the MyAlgorithm.py file and insert the algorithm logic into it.
 
 ### Where to insert the code
-[MyAlgorithm.py](MyAlgorithm.py#L74)
+[MyAlgorithm.py](MyAlgorithm.py#L91)
 ```
     def execute(self):
 		# demo code (replace with your code )
@@ -39,7 +39,7 @@ To carry out the practice, you must edit the MyAlgorithm.py file and insert the 
 
         #set processed image
         self.set_processed_image(color_img)
-        
+
         #set predicted pose
         x = 1
         y = 1
