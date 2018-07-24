@@ -62,7 +62,7 @@ To carry out the practice, you must edit the MyAlgorithm.py file and insert the 
 
 * ```self.set_processed_image(color_img)```  - to set the processed RGB image to be shown on the GUI.
 * ```self.set_predicted_pose(x,y)```  - to set the position predicted by the algorithm ( x and y should be floating point number.)
-
+* ```self.set_predicted_path(path)```  - to set predicted path at once /or reset the previously set predicted poses at once ---- path should be Nx2 (numpy array or python list) [x,y]. 
 
 ## Data Types:
 * The Color RGB image is provided in 640×480 8-bit RGB format.
