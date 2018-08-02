@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1313</width>
-    <height>875</height>
+    <width>1347</width>
+    <height>904</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,8 +23,8 @@
      <rect>
       <x>30</x>
       <y>680</y>
-      <width>161</width>
-      <height>121</height>
+      <width>171</width>
+      <height>141</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="logoLayout"/>
@@ -32,9 +32,9 @@
    <widget class="QPushButton" name="playpause">
     <property name="geometry">
      <rect>
-      <x>310</x>
+      <x>260</x>
       <y>300</y>
-      <width>151</width>
+      <width>201</width>
       <height>51</height>
      </rect>
     </property>
@@ -60,7 +60,7 @@
      <rect>
       <x>710</x>
       <y>30</y>
-      <width>571</width>
+      <width>621</width>
       <height>571</height>
      </rect>
     </property>
@@ -147,9 +147,9 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>240</x>
+      <x>160</x>
       <y>380</y>
-      <width>311</width>
+      <width>421</width>
       <height>31</height>
      </rect>
     </property>
@@ -211,9 +211,9 @@
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>0</x>
       <y>590</y>
-      <width>171</width>
+      <width>191</width>
       <height>20</height>
      </rect>
     </property>
@@ -281,9 +281,9 @@
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>390</x>
+      <x>370</x>
       <y>540</y>
-      <width>131</width>
+      <width>141</width>
       <height>31</height>
      </rect>
     </property>
@@ -369,7 +369,7 @@
       <x>120</x>
       <y>0</y>
       <width>131</width>
-      <height>21</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -387,8 +387,8 @@
      <rect>
       <x>440</x>
       <y>0</y>
-      <width>151</width>
-      <height>21</height>
+      <width>181</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -407,8 +407,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1313</width>
-     <height>27</height>
+     <width>1347</width>
+     <height>32</height>
     </rect>
    </property>
   </widget>
