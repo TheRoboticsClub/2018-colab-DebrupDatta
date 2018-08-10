@@ -6,6 +6,7 @@ import cv2
 import numpy as np
 from datetime import datetime
 
+
 time_cycle = 40 #80
 
 class MyAlgorithm(threading.Thread):
@@ -24,6 +25,7 @@ class MyAlgorithm(threading.Thread):
         threading.Thread.__init__(self, args=self.stop_event)
         self.diff_time = 0
 
+        
     def getReadings(self , *sensors):
         self.lock.acquire()
         data = self.bag_readings.getData(sensors)
@@ -89,27 +91,38 @@ class MyAlgorithm(threading.Thread):
         self.kill_event.set()
 
     def algorithm(self):
+        #Getting readings data
+        data = self.getReadings('accelerometer' , 'orientation' , 'color_img' , 'depth_img') # to get readings data from particular sensors
         
-        # demo code (replace with your code )
-        print ("Runing")
         
-        #Getting sensor data
-        data = self.getReadings('color_img' , 'depth_img') # to get readings data from selected sensors
         
+        #data = self.getReadings('stream') # to stream data from all sensors one by one 
+    
+        
+        #imu data
+        ax=data.accelerometer['x']
+        ay=data.accelerometer['y']
+        accelerometer_t = data.accelerometer_t
+        orientation_t = data.orientation_t
+        qz=data.orientation['qz']
+        qw=data.orientation['qw']
         #color image
         color_image = data.color_img
         #depth image
         depth_image = data.depth_img
-
-
-
+        
+        
+        
+        
+      
+        
         x = 1 
         y = 1
         #Show processed image on GUI
         self.set_processed_image(color_image)
-
+        #self.set_processed_image(depth_image)
         #set predicted pose
-        self.set_predicted_pose(x,y)    
+        self.set_predicted_pose(x,y)
 
-        #self.set_predicted_path(path)    - set predicted path at once /or reset the previously set predicted poses at once ---- path should be Nx2 numpy array or python list [x,y].
-        
+        #set predicted path at once /or reset the previously set predicted poses at once ---- path should be Nx2 numpy array or python list [x,y].
+        #self.set_predicted_path(path)
