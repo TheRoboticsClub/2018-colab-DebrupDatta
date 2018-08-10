@@ -16,7 +16,7 @@ To launch the exercise, follow the steps below:
 	pyqtgraph  --- ```sudo pip install pyqtgraph```
 
 
-* **Place** the rosbag file in the same directory as of this exercise and replace the name of the rosbag file in the 'visual_odometry.cfg' or mention the full path of the rosbag file.
+* **Place** the rosbag file in the same directory as of this exercise and replace the name of the rosbag file in the **'visual_odometry.cfg'** or mention the full path of the rosbag file.
 
 * **Execute** the exercise with GUI : ```python visual_odom.py```
 
@@ -24,7 +24,7 @@ To launch the exercise, follow the steps below:
 To carry out the practice, you must edit the MyAlgorithm.py file and insert the algorithm logic into it.
 
 ### Where to insert the code
-[MyAlgorithm.py](MyAlgorithm.py#L91)
+[MyAlgorithm.py](MyAlgorithm.py#L93)
 ```
     def execute(self):
 		# demo code (replace with your code )
@@ -68,8 +68,8 @@ To carry out the practice, you must edit the MyAlgorithm.py file and insert the 
 * The Color RGB image is provided in 640×480 8-bit RGB format.
 * The Depth image is provided in 32-bit floating point precision.
 * The Timestamps are floating point numbers.
-* For more details refer to the original page of the TUM RGBD dataset <https://vision.in.tum.de/data/datasets/rgbd-dataset/file_formats#ros_bag>.
+* For more details about the dataset refer to the original page of the TUM RGBD dataset <https://vision.in.tum.de/data/datasets/rgbd-dataset/file_formats#ros_bag>.
 
 ## Demonstration video:
 
-<iframe width="711" height="400" src="https://www.youtube.com/embed/2coEdSWuACA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+[https://www.youtube.com/embed/2coEdSWuACA](https://www.youtube.com/embed/2coEdSWuACA)
