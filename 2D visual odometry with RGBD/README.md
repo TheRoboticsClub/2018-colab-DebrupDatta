@@ -72,4 +72,4 @@ To carry out the practice, you must edit the MyAlgorithm.py file and insert the 
 
 ## Demonstration video:
 
-[https://www.youtube.com/embed/2coEdSWuACA](https://www.youtube.com/embed/2coEdSWuACA)
+[https://www.youtube.com/watch?v=OqtmgNGzEZM](https://www.youtube.com/watch?v=OqtmgNGzEZM)
