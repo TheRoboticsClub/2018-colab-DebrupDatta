@@ -6,8 +6,8 @@ import cv2
 import numpy as np
 from datetime import datetime
 
-
-from visual_sol_rgbd import Rgbd_visual_odom
+from visual_solution import Mono_visual_odom
+from imu_solution import Imu_odom
 
 time_cycle = 40 #80
 
@@ -27,7 +27,8 @@ class MyAlgorithm(threading.Thread):
         threading.Thread.__init__(self, args=self.stop_event)
         self.diff_time = 0
 
-        self.rgbd_od = Rgbd_visual_odom()
+        self.vo = Mono_visual_odom()
+        self.imu_od = Imu_odom()
     def getReadings(self , *sensors):
         self.lock.acquire()
         data = self.bag_readings.getData(sensors)
@@ -94,25 +95,25 @@ class MyAlgorithm(threading.Thread):
 
     def algorithm(self):
         #Getting readings data
-        data = self.getReadings('color_img' , 'depth_img') # to get readings data from particular sensors
+        data = self.getReadings('accelerometer' , 'orientation' ) # to get readings data from particular sensors
         '''
         data = self.getReadings() # to get data from all sensors
         data = self.getReadings('stream') # to stream data from all sensors one by one 
         '''
         
         #imu data
-        #ax=data.accelerometer['x']
-        #ay=data.accelerometer['y']
-        #accelerometer_t = data.accelerometer_t
-        #orientation_t = data.orientation_t
-        #qz=data.orientation['qz']
-        #qw=data.orientation['qw']
+        ax=data.accelerometer['x']
+        ay=data.accelerometer['y']
+        accelerometer_t = data.accelerometer_t
+        orientation_t = data.orientation_t
+        qz=data.orientation['qz']
+        qw=data.orientation['qw']
         #color image
-        color_image = data.color_img
+        #color_image = data.color_img
         #depth image
-        depth_image = data.depth_img
-        #x , y  = self.imu_od.get_imu_estimate( ax, ay , accelerometer_t , qz , qw , orientation_t)
-        x , y,mask = self.rgbd_od.get_rgbd_estimate(color_image , depth_image)
+        #depth_image = data.depth_img
+        x , y  = self.imu_od.get_imu_estimate( ax, ay , accelerometer_t , qz , qw , orientation_t)
+        
         '''
         x ,y , mask = self.vo.get_vo_estimate(color_image , depth_image)
         x= float(x[0]) /35
@@ -123,9 +124,8 @@ class MyAlgorithm(threading.Thread):
         #y = 1
         #Show processed image on GUI
         self.set_processed_image(mask)'''
-        self.set_processed_image(mask)
+        #self.set_processed_image(depth_image)
         #set predicted pose
-        print(x,y)
         self.set_predicted_pose(x,y)
 
         #set predicted path at once /or reset the previously set predicted poses at once ---- path should be Nx2 numpy array or python list [x,y].
