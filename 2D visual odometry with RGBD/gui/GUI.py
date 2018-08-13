@@ -58,14 +58,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         if model.shape[1] > data.shape[1] :
             diff = model.shape[1] - data.shape[1]
-            remove = numpy.random.choice(range(model.shape[1]) , size = diff , replace =False)         
+            #remove = numpy.random.choice(range(model.shape[1]) , size = diff , replace =False)
+            remove = numpy.linspace(start = 1 , stop = model.shape[1] , num = diff , endpoint=False ,dtype= int)         
             model = numpy.delete(model , remove , axis = 1)
             z=numpy.zeros((1,data.shape[1]))
             data= numpy.vstack((data,z)) 
             model= numpy.vstack((model,z))
         elif model.shape[1] < data.shape[1] :
             diff = -(model.shape[1] - data.shape[1])
-            remove = numpy.random.choice(range(data.shape[1]) , size = diff  ,replace = False)
+            #remove = numpy.random.choice(range(data.shape[1]) , size = diff  ,replace = False)
+            remove = numpy.linspace(start = 1 , stop = data.shape[1] , num = diff , endpoint=False ,dtype= int)         
             data = numpy.delete(data , remove , axis = 1)
             z=numpy.zeros((1,model.shape[1]))
             data= numpy.vstack((data,z))
