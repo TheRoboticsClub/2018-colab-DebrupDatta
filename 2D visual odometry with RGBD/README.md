@@ -74,4 +74,3 @@ To carry out the practice, you must edit the MyAlgorithm.py file and insert the 
 
 
 [https://www.youtube.com/watch?v=OqtmgNGzEZM](https://www.youtube.com/watch?v=OqtmgNGzEZM)
-
