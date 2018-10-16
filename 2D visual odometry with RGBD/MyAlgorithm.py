@@ -38,10 +38,10 @@ class MyAlgorithm(threading.Thread):
         self.pose_obj.set_pred_path(path)
         self.pose_lock.release()
 
-    def set_predicted_pose(self,x,y):
+    def set_predicted_pose(self,x,y,t):
         self.pose_lock.acquire()
         self.predicted_pose = [x,y]
-        self.pose_obj.set_pred_pose([x,y])
+        self.pose_obj.set_pred_pose([x,y],t)
         self.pose_lock.release()
 
     def get_predicted_pose(self):
@@ -110,7 +110,7 @@ class MyAlgorithm(threading.Thread):
         color_image = data.color_img
         #depth image
         depth_image = data.depth_img
-        
+        color_img_t = data.color_img_t
         
         
         
@@ -122,7 +122,7 @@ class MyAlgorithm(threading.Thread):
         self.set_processed_image(color_image)
         #self.set_processed_image(depth_image)
         #set predicted pose
-        self.set_predicted_pose(x,y)
+        self.set_predicted_pose(x,y,color_img_t)
 
         #set predicted path at once /or reset the previously set predicted poses at once ---- path should be Nx2 numpy array or python list [x,y].
         #self.set_predicted_path(path)

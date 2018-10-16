@@ -13,11 +13,11 @@ if __name__ == "__main__":
     bag_file = config['FILE']['rosbag_file_dir']
     
     pose_obj = Pose()
-    bag = Read_Rosbag(pose_obj ,bag_file)
     
-    algorithm = MyAlgorithm(bag , pose_obj)
     app = QApplication(sys.argv)
     myGUI = MainWindow()
+    bag = Read_Rosbag(pose_obj ,bag_file , myGUI)
+    algorithm = MyAlgorithm(bag , pose_obj)
     myGUI.set_bag(bag)
     myGUI.set_pose(pose_obj)
     myGUI.setAlgorithm(algorithm)
