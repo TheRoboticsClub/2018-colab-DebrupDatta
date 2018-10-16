@@ -63,8 +63,11 @@ To carry out the practice, you must edit the MyAlgorithm.py file and insert the 
 
 **Similiarly ,** to get the readings of other sensors the required sensors name has to be mentioned while calling ```data = self.getReadings()```  seperated by commas (,). 
 
+
 ```data.color_img``` - for RGB color image and ```data.color_img_t``` for its timestamp.
+
 ```data.depth_img``` - for depth image and ```data.depth_img_t``` for its timestamp.
+
 ```data.accelerometer``` - for accelerometer data and ```data.accelerometer_t``` for its timestamp.
 
 ```data.orientation``` - for orientation data and ```data.orientation_t``` for its timestamp.
