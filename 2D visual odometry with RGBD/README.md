@@ -60,6 +60,18 @@ To carry out the practice, you must edit the MyAlgorithm.py file and insert the 
 * ```color_img_t = data.color_img_t``` - to get the timestamp of the RGB image.
 * ```depth_img_t = data.depth_img_t``` - to get the timestamp of the Depth image.
 
+
+**Similiarly ,** to get the readings of other sensors the required sensors name has to be mentioned while calling ```data = self.getReadings()```  seperated by commas (,). 
+
+```data.color_img``` - for RGB color image and ```data.color_img_t``` for its timestamp.
+```data.depth_img``` - for depth image and ```data.depth_img_t``` for its timestamp.
+```data.accelerometer``` - for accelerometer data and ```data.accelerometer_t``` for its timestamp.
+
+```data.orientation``` - for orientation data and ```data.orientation_t``` for its timestamp.
+
+```data.scan``` - for laser scan data and ```data.scan_t``` for its timestamp.
+(You can mention as many as sensors names during calling the method).
+
 * ```self.set_processed_image(color_img)```  - to set the processed RGB image to be shown on the GUI.
 * ```self.set_predicted_pose(x,y,timestamp)```  - to set the position and timestamp of the predicte pose by the algorithm ( x and y should be floating point number.)
 * ```self.set_predicted_path(path)```  - to set predicted path at once /or reset the previously set predicted poses at once ---- path should be Nx2 (numpy array or python list) [x,y]. _(optional)_
