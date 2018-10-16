@@ -73,7 +73,9 @@ To carry out the practice, you must edit the MyAlgorithm.py file and insert the 
 ```data.orientation``` - for orientation data and ```data.orientation_t``` for its timestamp.
 
 ```data.scan``` - for laser scan data and ```data.scan_t``` for its timestamp.
-(You can mention as many as sensors names during calling the method).
+
+
+(You can mention as many as sensors names during calling the ```data = self.getReadings()``` method).
 
 * ```self.set_processed_image(color_img)```  - to set the processed RGB image to be shown on the GUI.
 * ```self.set_predicted_pose(x,y,timestamp)```  - to set the position and timestamp of the predicte pose by the algorithm ( x and y should be floating point number.)
