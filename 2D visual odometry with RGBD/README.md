@@ -115,3 +115,6 @@ Let's assume that the user only wants the data from 'color_img' , 'depth_img' an
 
 
 [https://www.youtube.com/watch?v=OqtmgNGzEZM](https://www.youtube.com/watch?v=OqtmgNGzEZM)
+
+*Author:*
+* *Debrup Datta <dattadebrup@gmail.com>* 
